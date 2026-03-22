@@ -7,7 +7,7 @@ from .types import MilliSatoshi
 
 
 def verify_hrp(hrp: str) -> Tuple[str, Optional[MilliSatoshi]]:
-    matches = match(r"ln(bcrt|bc|tbs|tb|ltc)(\w+)?", hrp)
+    matches = match(r"ln(bcrt|bc|tbs|tb|ltc|rltc|tltc)(\w+)?", hrp)
     if matches is None:
         raise Bolt11HrpInvalidException()
     currency, amount_str = matches.groups()
